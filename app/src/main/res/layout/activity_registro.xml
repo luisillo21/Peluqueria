@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.RegistroActivity"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+            <ImageView
+                android:id="@+id/imageView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:srcCompat="@drawable/descarga"
+                android:contentDescription="@string/login_mensaje"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/login_form"
+                android:textAlignment="center"
+                android:textColor="@android:color/holo_blue_dark"
+                android:ems="15"
+                android:paddingBottom="20dp"/>
+
+
+            <TextView
+                android:id="@+id/tw_usuario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/login_usuario"
+
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/usuario"
+                android:inputType="text"
+
+                />
+
+            <TextView
+                android:id="@+id/tw_pass"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="20"
+                android:text="@string/login_clave"
+
+                android:textColor="@android:color/holo_blue_dark" />
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/clave"
+                android:layout_marginBottom="10dp"
+                android:inputType="textPassword"
+
+                />
+
+        <TextView
+            android:id="@+id/tw_clave"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:text="@string/login_confirmar"
+
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/cnf_clave"
+            android:layout_marginBottom="10dp"
+            android:inputType="textPassword"
+
+            />
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_registrar"
+                android:text="@string/login_cuenta"
+                android:textColor="@android:color/white"
+                android:background="@android:color/holo_blue_dark"
+                />
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btn_volver"
+                android:text="@string/login_volver"
+                android:textColor="@android:color/white"
+                android:background="@android:color/holo_red_dark"/>
+
+
+        </LinearLayout>
+
+
+
+</LinearLayout>

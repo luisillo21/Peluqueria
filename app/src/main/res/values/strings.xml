@@ -1,0 +1,16 @@
+<resources>
+    <string name="login_mensaje">Iniciar Sesion </string>
+    <string name="login_usuario">Usuario </string>
+    <string name="login_clave">Contraseña </string>
+    <string name="app_name">Peluqueria</string>
+    <string name="login_salir">Salir</string>
+    <string name="login_volver">Volver</string>
+    <string name="login_confirmar">Confirmar clave</string>
+    <string name="login_form">Formulario de registro</string>
+    <string name="login_cuenta">Crear mi cuenta</string>
+    <string name="title_activity_menu_activity">menu_activity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_inicio_menu">Inicio_menu</string>
+
+</resources>
