@@ -40,7 +40,7 @@
     <string name="Edad">Edad</string>
     <string name="Telefono">Telefono</string>
     <string name="Guardar">Guardar</string>
-    <string name="descripcion"> </string>
+    <string name="descripcion">Imagen_item</string>
 
     <string name="mensaje_guardar">Registro guardado</string>
 
