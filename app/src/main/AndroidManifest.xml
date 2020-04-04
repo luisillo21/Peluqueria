@@ -6,19 +6,17 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/icono_peluqueria"
+        android:icon="@mipmap/icono_peluqueria_foreground"
         android:label="@string/app_name"
         android:networkSecurityConfig="@xml/netwotksecurityconfig"
-        android:roundIcon="@mipmap/icono_peluqueria"
+        android:roundIcon="@mipmap/icono_peluqueria_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
         <activity android:name=".Activities.SplashActivity">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <activity android:name=".Activities.RegistroActivity" />
         <activity android:name=".Activities.InicioActivity" />
