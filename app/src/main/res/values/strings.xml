@@ -10,7 +10,31 @@
     <string name="login_cuenta">Crear mi cuenta</string>
     <string name="title_activity_menu_activity">menu_activity</string>
     <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_2">Instruccciones</string>
+    <string name="tab_text_3">Actividad</string>
+    <string name="tab_text_4">Personal</string>
+    <string name="listado_del_personal">Listado del personal</string>
+    <string name="signo_mas">Agregar un nuevo personal</string>
+
+
     <string name="title_activity_inicio_menu">Inicio_menu</string>
+    <string name="title_activity_principal_activitty">PrincipalActivitty</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Fragmento </string>
+    <!-- String para el item_list_personal.xml -->
+    <string name="nombre">Nombre*</string>
+    <string name="telefono">Telefono*</string>
+    <string name="cedula">Cedula*</string>
+    <string name="id">id*</string>
+    <string name="edad">Edad*</string>
+
+    <string-array name="fragments">
+        <item>Personal</item>
+        <item>Actividades</item>
+        <item>Cerrar Sesion</item>
+        <item>Salir</item>
+    </string-array>
+
 
 </resources>
