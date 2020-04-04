@@ -11,10 +11,10 @@ import retrofit2.http.Query;
 
 public interface Servicios {
 
-    @GET("/API/Proyecto_peluqueria/usuarios.php")
+    @GET("/webservices/trunk/Proyecto_peluqueria/usuarios.php")
     Call<List<Usuario>> getUsuarios();
 
-    @GET("/API/Proyecto_peluqueria/usuario_login.php/")
+    @GET("/webservices/trunk/Proyecto_peluqueria/usuario_login.php")
     Call<Usuario> getUsuario(@Query("usuario") String usuario);
 
 

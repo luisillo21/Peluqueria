@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.example.peluqueria.API.Api;
 import com.example.peluqueria.API.Deserializers.UsuarioDeserializer;
 import com.example.peluqueria.API.Services.Servicios;
+import com.example.peluqueria.DAO.PeluqueriaDao;
 import com.example.peluqueria.Database.DbPeluqueria;
 import com.example.peluqueria.Model.Rol;
 import com.example.peluqueria.Model.Usuario;
@@ -62,7 +63,44 @@ public class MainActivity extends AppCompatActivity {
                      startActivity(intent);
                  }
              }else{
-                 Toast.makeText(MainActivity.this,"Usuario o contraseña incorrectos",Toast.LENGTH_LONG).show();
+                 GsonBuilder builder = new GsonBuilder();
+                 builder.registerTypeAdapter(Usuario.class, new UsuarioDeserializer());
+                 Api.retrofit = null;
+                 Servicios serv = Api.getAPI(builder).create(Servicios.class);
+                 Call<Usuario> datos = serv.getUsuario(usuario);
+                 datos.enqueue(new Callback<Usuario>() {
+                     @Override
+                     public void onResponse(Call<Usuario> call, Response<Usuario> response) {
+                         if (response.isSuccessful()){
+                             String usuario = etUsuario.getText().toString();
+                             String clave = etPass.getText().toString();
+                             Usuario obj = response.body();
+                             if (usuario.equals(obj.getUsuario()) && clave.equals(obj.getClave())){
+                                 PeluqueriaDao object = new PeluqueriaDao();
+                                 object.guardar(usuario,clave,MainActivity.this);
+                                 Toast.makeText(MainActivity.this,"Usuario Guardado en la base local",Toast.LENGTH_LONG).show();
+
+                                 Intent intent = new Intent(MainActivity.this, InicioActivity.class );
+                                 startActivity(intent);
+                             }else{
+                                 Toast.makeText(MainActivity.this,"Contraseña incorrecta",Toast.LENGTH_LONG).show();
+                             }
+
+                         }else{
+                             Toast.makeText(MainActivity.this,"Usuario no registrado",Toast.LENGTH_LONG).show();
+
+                             Toast.makeText(MainActivity.this,response.message(),Toast.LENGTH_LONG).show();
+                         }
+                     }
+
+                     @Override
+                     public void onFailure(Call<Usuario> call, Throwable t) {
+                         Toast.makeText(MainActivity.this,"No tiene conexion a internet, por favor consulte a su proveedor",Toast.LENGTH_LONG).show();
+                         t.printStackTrace();
+                     }
+                 });
+
+
              }
 
 
