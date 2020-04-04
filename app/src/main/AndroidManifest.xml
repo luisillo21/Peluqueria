@@ -12,16 +12,18 @@
         android:roundIcon="@mipmap/icono_peluqueria_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
+        <activity android:name=".Activities.Success_splash"></activity>
+        <activity android:name=".Activities.ResgistroPersonalActivity" />
         <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".Activities.RegistroActivity" />
         <activity android:name=".Activities.InicioActivity" />
-        <activity android:name=".Activities.MainActivity">
-        </activity>
+        <activity android:name=".Activities.MainActivity" />
     </application>
 
 </manifest>

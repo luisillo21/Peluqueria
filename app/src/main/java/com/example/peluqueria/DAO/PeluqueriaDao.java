@@ -56,7 +56,7 @@ public class PeluqueriaDao extends AppCompatActivity {
         db.update("personal",valores,"id="+id,null);
         db.close();
     }
-    public ArrayList<Personal> Listar_todo(Personal persona, Context context){
+    public ArrayList<Personal> Listar_todo(Context context){
         DbPeluqueria admin = new DbPeluqueria(context,"peluqueria",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
         Cursor row = db.rawQuery("SELECT * from personal where estado = 'A'",null);

@@ -22,12 +22,6 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Fragmento </string>
-    <!-- String para el item_list_personal.xml -->
-    <string name="nombre">Nombre*</string>
-    <string name="telefono">Telefono*</string>
-    <string name="cedula">Cedula*</string>
-    <string name="id">id*</string>
-    <string name="edad">Edad*</string>
 
     <string-array name="fragments">
         <item>Personal</item>
@@ -35,6 +29,19 @@
         <item>Cerrar Sesion</item>
         <item>Salir</item>
     </string-array>
+
+    <string name="Crear">Agregar registro</string>
+    <string name="formulario_personal">Formulario personal</string>
+
+
+    <!-- String para formularios de registro personal -->
+    <string name="Nombre">Nombre</string>
+    <string name="Cedula">Cedula</string>
+    <string name="Edad">Edad</string>
+    <string name="Telefono">Telefono</string>
+    <string name="Guardar">Guardar</string>
+
+    <string name="mensaje_guardar">Registro guardado</string>
 
 
 </resources>

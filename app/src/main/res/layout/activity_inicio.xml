@@ -7,7 +7,30 @@
     android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".Activities.InicioActivity">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
 
+        <Button
+            android:layout_width="match_parent"
+            android:id="@+id/btn_form_personal"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:background="@android:color/holo_blue_bright"
+            android:text="@string/Crear"
+            />
 
+    </LinearLayout>
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/listPersonal"
+        android:layout_margin="10dp"
+        android:dividerHeight="5dp"
+        android:divider="#d1d1d1"
+
+        />
 
 </LinearLayout>
