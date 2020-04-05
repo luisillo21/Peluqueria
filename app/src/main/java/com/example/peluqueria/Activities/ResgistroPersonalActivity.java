@@ -1,10 +1,16 @@
 package com.example.peluqueria.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -35,6 +41,7 @@ public class ResgistroPersonalActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent_form = new Intent(ResgistroPersonalActivity.this,InicioActivity.class);
                 startActivity(intent_form);
+                finish();
             }
         });
 
@@ -53,10 +60,61 @@ public class ResgistroPersonalActivity extends AppCompatActivity {
                 dao.guardar_Personal(obj,ResgistroPersonalActivity.this);
                 Intent intent_form = new Intent(ResgistroPersonalActivity.this,Success_splash.class);
                 startActivity(intent_form);
+                finish();
 
             }
         });
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case R.id.it_cerrar_sesion:
+                SharedPreferences preferences;
+                preferences = getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
+                preferences.edit().clear().apply();
+                Intent intent3 = new Intent(ResgistroPersonalActivity.this,MainActivity.class);
+                startActivity(intent3);
+                finish();
+                return true;
+
+            case R.id.it_asignar_actividades:
+                return true;
+
+            case R.id.it_actividades:
+                return true;
+
+            case R.id.it_usuario:
+                Intent intent = new Intent(ResgistroPersonalActivity.this,RegistroActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+
+            case R.id.it_personal:
+                Intent intent4 = new Intent(ResgistroPersonalActivity.this,InicioActivity.class);
+                startActivity(intent4);
+                finish();
+                return true;
+
+            case R.id.it_salir:
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
+    }
+
+
 }

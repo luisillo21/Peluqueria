@@ -32,6 +32,13 @@
 
     <string name="Crear">Agregar registro</string>
     <string name="formulario_personal">Formulario personal</string>
+    <string name="Recordar">Recordar credenciales</string>
+    <string name="cerrar_sesion">Cerrar sesion</string>
+    <string name="asignar_actividad">Asignar actividades</string>
+    <string name="actividades">Actividades</string>
+    <string name="lista_personal">Lista personal</string>
+    <string name="crear_usuario">Crear usuario</string>
+    <string name="salir">Salir</string>
 
 
     <!-- String para formularios de registro personal -->
@@ -41,6 +48,9 @@
     <string name="Telefono">Telefono</string>
     <string name="Guardar">Guardar</string>
     <string name="descripcion">Imagen_item</string>
+    <string name="editar">Editar</string>
+    <string name="Id">Id</string>
+    <string name="eliminar">Eliminar</string>
 
     <string name="mensaje_guardar">Registro guardado</string>
 

@@ -1,11 +1,16 @@
 package com.example.peluqueria.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -41,7 +46,13 @@ public class InicioActivity extends AppCompatActivity {
         listPersonal.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(),"id"+ lista_personal.get(position).getNombre(),Toast.LENGTH_LONG).show();
+                Personal obj =  lista_personal.get(position);
+                Intent intent = new Intent(InicioActivity.this,DetallePersonal.class);
+                Bundle bundle = new Bundle();
+                bundle.putSerializable("personal",obj);
+                intent.putExtras(bundle);
+                startActivity(intent);
+                finish();
             }
         });
 
@@ -51,6 +62,7 @@ public class InicioActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent_form = new Intent(InicioActivity.this,ResgistroPersonalActivity.class);
                 startActivity(intent_form);
+                finish();
             }
         });
 
@@ -59,6 +71,57 @@ public class InicioActivity extends AppCompatActivity {
 
 
     }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case R.id.it_cerrar_sesion:
+                SharedPreferences preferences;
+                preferences = getSharedPreferences("datos_usuario",MODE_PRIVATE);
+                preferences.edit().clear().apply();
+                Intent intent3 = new Intent(InicioActivity.this,MainActivity.class);
+                startActivity(intent3);
+                finish();
+                return true;
+
+            case R.id.it_asignar_actividades:
+                return true;
+
+            case R.id.it_personal:
+                Intent intent4 = new Intent(InicioActivity.this,InicioActivity.class);
+                startActivity(intent4);
+                finish();
+                return true;
+
+            case R.id.it_actividades:
+                return true;
+
+            case R.id.it_usuario:
+               Intent intent = new Intent(InicioActivity.this,RegistroActivity.class);
+               startActivity(intent);
+               finish();
+               return true;
+
+            case R.id.it_salir:
+                finish();
+                return true;
+
+             default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
+    }
+
+
+
 
 
 }

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/it_cerrar_sesion"
+        android:title="@string/cerrar_sesion"
+        />
+
+
+    <item
+        android:id="@+id/it_actividades"
+        android:title="@string/actividades"
+        />
+
+
+    <item
+        android:id="@+id/it_salir"
+        android:title="@string/salir"
+        />
+
+
+    <item
+        android:id="@+id/it_asignar_actividades"
+        android:title="@string/asignar_actividad"
+        />
+
+    <item
+        android:id="@+id/it_personal"
+        android:title="@string/lista_personal"
+        />
+
+    <item
+        android:id="@+id/it_usuario"
+        android:title="@string/crear_usuario"
+        />
+
+
+
+</menu>

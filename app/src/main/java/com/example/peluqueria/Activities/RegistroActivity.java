@@ -1,11 +1,17 @@
 package com.example.peluqueria.Activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -45,6 +51,7 @@ public class RegistroActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(RegistroActivity.this, MainActivity.class );
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -82,6 +89,7 @@ public class RegistroActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<Usuario> call, Throwable t) {
                           guardar(var_usu,var_clave);
+
                         }
                     });
                 }else{
@@ -98,6 +106,54 @@ public class RegistroActivity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu){
+        MenuInflater menuInflater = getMenuInflater();
+        menuInflater.inflate(R.menu.menu,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item){
+        switch (item.getItemId()){
+            case R.id.it_cerrar_sesion:
+                SharedPreferences preferences;
+                preferences = getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
+                preferences.edit().clear().apply();
+                Intent intent3 = new Intent(RegistroActivity.this,MainActivity.class);
+                startActivity(intent3);
+                finish();
+                return true;
+
+            case R.id.it_asignar_actividades:
+                return true;
+
+            case R.id.it_actividades:
+                return true;
+
+            case R.id.it_personal:
+                Intent intent4 = new Intent(RegistroActivity.this,ResgistroPersonalActivity.class);
+                startActivity(intent4);
+                finish();
+                return true;
+
+            case R.id.it_usuario:
+                Intent intent = new Intent(RegistroActivity.this,RegistroActivity.class);
+                startActivity(intent);
+                finish();
+                return true;
+
+            case R.id.it_salir:
+                finish();
+                return true;
+
+            default:
+                return super.onOptionsItemSelected(item);
+
+        }
+
+    }
+
     public void guardar(String usuario, String clave){
         DbPeluqueria admin = new DbPeluqueria(RegistroActivity.this,"peluqueria",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
@@ -106,7 +162,8 @@ public class RegistroActivity extends AppCompatActivity {
         valores.put("clave",clave);
         db.insert("usuario",null,valores);
         db.close();
-        Intent intent = new Intent(RegistroActivity.this, MainActivity.class );
+        Intent intent = new Intent(RegistroActivity.this, Success_splash.class );
         startActivity(intent);
+        finish();
     }
 }

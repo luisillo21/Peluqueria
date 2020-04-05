@@ -71,6 +71,16 @@
 
             />
 
+        <CheckBox
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/Recordar"
+            android:layout_margin="10dp"
+            android:id="@+id/cbRecordar"
+            android:checked="true"
+            android:background="@android:color/holo_orange_light"
+            android:textColor="@android:color/white"
+        />
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

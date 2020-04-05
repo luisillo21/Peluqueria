@@ -39,10 +39,12 @@ public class PersonalAdapter extends BaseAdapter {
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = View.inflate(mContext, R.layout.item_personal,null);
+        TextView id_personal = (TextView)v.findViewById(R.id.personal_item);
         TextView nombre = (TextView) v.findViewById(R.id.nombre_item);
         TextView cedula = (TextView) v.findViewById(R.id.cedula_item);
         TextView telefono = (TextView) v.findViewById(R.id.telefono_item);
         TextView edad = (TextView) v.findViewById(R.id.edad_item);
+        id_personal.setText(String.valueOf(lstPersonal.get(position).getId_personal()));
         nombre.setText(lstPersonal.get(position).getNombre());
         cedula.setText(lstPersonal.get(position).getCedula());
         telefono.setText(lstPersonal.get(position).getTelefono());

@@ -1,6 +1,8 @@
 package com.example.peluqueria.Model;
 
-public class Personal {
+import java.io.Serializable;
+
+public class Personal implements Serializable{
     private int id_personal;
     private String nombre;
     private int edad;
