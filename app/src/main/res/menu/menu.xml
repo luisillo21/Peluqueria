@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <item
-        android:id="@+id/it_cerrar_sesion"
-        android:title="@string/cerrar_sesion"
-        />
+
 
 
     <item
@@ -13,15 +10,17 @@
         />
 
 
-    <item
-        android:id="@+id/it_salir"
-        android:title="@string/salir"
-        />
+
 
 
     <item
         android:id="@+id/it_asignar_actividades"
         android:title="@string/asignar_actividad"
+        />
+
+    <item
+        android:id="@+id/it_guardar_actividades"
+        android:title="@string/crear_actividad"
         />
 
     <item
@@ -34,6 +33,16 @@
         android:title="@string/crear_usuario"
         />
 
+
+    <item
+        android:id="@+id/it_cerrar_sesion"
+        android:title="@string/cerrar_sesion"
+        />
+
+    <item
+        android:id="@+id/it_salir"
+        android:title="@string/salir"
+        />
 
 
 </menu>

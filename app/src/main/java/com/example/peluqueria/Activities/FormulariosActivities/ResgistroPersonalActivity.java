@@ -1,4 +1,4 @@
-package com.example.peluqueria.Activities;
+package com.example.peluqueria.Activities.FormulariosActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -7,14 +7,19 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.example.peluqueria.Activities.DetalleActividad;
+import com.example.peluqueria.Activities.InicioActivity;
+import com.example.peluqueria.Activities.MainActivity;
+import com.example.peluqueria.Activities.Success_splash;
+import com.example.peluqueria.Activities.activity_actividades;
 import com.example.peluqueria.DAO.PeluqueriaDao;
 import com.example.peluqueria.Model.Personal;
 import com.example.peluqueria.R;
@@ -39,7 +44,7 @@ public class ResgistroPersonalActivity extends AppCompatActivity {
         btn_volver_inicio.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent_form = new Intent(ResgistroPersonalActivity.this,InicioActivity.class);
+                Intent intent_form = new Intent(ResgistroPersonalActivity.this, InicioActivity.class);
                 startActivity(intent_form);
                 finish();
             }
@@ -48,7 +53,16 @@ public class ResgistroPersonalActivity extends AppCompatActivity {
         btn_registrar_personal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String var_3 = telefono.getText().toString();
+                if (edad.getText().toString().isEmpty()||
+                        nombre.getText().toString().isEmpty()||
+                        telefono.getText().toString().isEmpty()||
+                        cedula.getText().toString().isEmpty()){
+
+                        Toast.makeText(ResgistroPersonalActivity.this,"Por favor llene todos los campos",Toast.LENGTH_LONG).show();
+
+                }else{
+
+
                 final String var_edad  = edad.getText().toString() ;
                 final int edad_num = Integer.parseInt(var_edad);
                 Personal obj = new Personal();
@@ -58,9 +72,15 @@ public class ResgistroPersonalActivity extends AppCompatActivity {
                 obj.setTelefono(telefono.getText().toString());
                 PeluqueriaDao dao = new PeluqueriaDao();
                 dao.guardar_Personal(obj,ResgistroPersonalActivity.this);
-                Intent intent_form = new Intent(ResgistroPersonalActivity.this,Success_splash.class);
-                startActivity(intent_form);
-                finish();
+
+                    nombre.setText("");
+                    cedula.setText("");
+                    edad.setText("");
+                    telefono.setText("");
+                    Toast.makeText(ResgistroPersonalActivity.this,"Personal guardado con cedula: "+cedula.getText().toString(),Toast.LENGTH_LONG).show();
+
+
+                }
 
             }
         });
@@ -80,7 +100,7 @@ public class ResgistroPersonalActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.it_cerrar_sesion:
                 SharedPreferences preferences;
-                preferences = getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
+                preferences = getSharedPreferences("datos_usuario",MODE_PRIVATE);
                 preferences.edit().clear().apply();
                 Intent intent3 = new Intent(ResgistroPersonalActivity.this,MainActivity.class);
                 startActivity(intent3);
@@ -90,18 +110,27 @@ public class ResgistroPersonalActivity extends AppCompatActivity {
             case R.id.it_asignar_actividades:
                 return true;
 
-            case R.id.it_actividades:
-                return true;
-
-            case R.id.it_usuario:
-                Intent intent = new Intent(ResgistroPersonalActivity.this,RegistroActivity.class);
-                startActivity(intent);
-                finish();
-                return true;
-
             case R.id.it_personal:
                 Intent intent4 = new Intent(ResgistroPersonalActivity.this,InicioActivity.class);
                 startActivity(intent4);
+                finish();
+                return true;
+
+            case R.id.it_guardar_actividades:
+                Intent intent7= new Intent(ResgistroPersonalActivity.this, RegistroActividades.class);
+                startActivity(intent7);
+                finish();
+                return true;
+
+            case R.id.it_actividades:
+                Intent intent6 = new Intent(ResgistroPersonalActivity.this, activity_actividades.class);
+                startActivity(intent6);
+                finish();
+                return true;
+
+            case R.id.it_usuario:
+                Intent intent = new Intent(ResgistroPersonalActivity.this, RegistroActivity.class);
+                startActivity(intent);
                 finish();
                 return true;
 

@@ -15,16 +15,22 @@ public class DbPeluqueria  extends SQLiteOpenHelper{
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE rol(id_rol integer PRIMARY KEY AUTOINCREMENT NOT NULL,nombre text,estado text DEFAULT 'A')");
+        db.execSQL("CREATE TABLE actividad(id_actividad integer PRIMARY KEY AUTOINCREMENT NOT NULL,descripcion text,fecha text,hora_inicio,hora_fin,precio float,estado text DEFAULT 'A')");
+        db.execSQL("CREATE TABLE asignar_actividad(idasignar_actividad integer PRIMARY KEY AUTOINCREMENT NOT NULL,id_personal integer,id_actividad integer,estado text DEFAULT 'A')");
         db.execSQL("CREATE TABLE usuario(id integer primary key AUTOINCREMENT NOT NULL,usuario text,clave text, rol_id integer DEFAULT 1,estado text DEFAULT 'A')");
         db.execSQL("CREATE TABLE personal(id_personal integer primary key AUTOINCREMENT NOT NULL,nombre text, edad integer ,cedula text,telefono text,estado text DEFAULT 'A')");
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+        db.execSQL("DROP TABLE IF EXISTS actividad");
+        db.execSQL("CREATE TABLE actividad(id_actividad integer PRIMARY KEY AUTOINCREMENT NOT NULL,descripcion text,fecha text,hora_inicio,hora_fin,precio float,estado text DEFAULT 'A')");
         db.execSQL("DROP TABLE IF EXISTS personal");
         db.execSQL("CREATE TABLE personal(id_personal integer primary key AUTOINCREMENT NOT NULL,nombre text, edad integer ,cedula text,telefono text,estado text DEFAULT 'A')");
         db.execSQL("DROP TABLE IF EXISTS rol");
         db.execSQL("CREATE TABLE rol(id_rol integer PRIMARY KEY AUTOINCREMENT NOT NULL,nombre text,estado text DEFAULT 'A')");
+        db.execSQL("DROP TABLE IF EXISTS asignar_actividad");
+        db.execSQL("CREATE TABLE asignar_actividad(idasignar_actividad integer PRIMARY KEY AUTOINCREMENT NOT NULL,id_personal integer,id_actividad integer,estado text DEFAULT 'A')");
         db.execSQL("DROP TABLE IF EXISTS usuario");
         db.execSQL("CREATE TABLE usuario(id_usuario integer primary key,nombre text,telefono text)");
     }

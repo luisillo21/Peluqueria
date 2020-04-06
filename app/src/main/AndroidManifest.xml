@@ -12,9 +12,12 @@
         android:roundIcon="@mipmap/icono_peluqueria_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".Activities.DetallePersonal"></activity>
+        <activity android:name=".Activities.DetalleActividad"></activity>
+        <activity android:name=".Activities.FormulariosActivities.RegistroActividades" />
+        <activity android:name=".Activities.activity_actividades" />
+        <activity android:name=".Activities.DetallePersonal" />
         <activity android:name=".Activities.Success_splash" />
-        <activity android:name=".Activities.ResgistroPersonalActivity" />
+        <activity android:name=".Activities.FormulariosActivities.ResgistroPersonalActivity" />
         <activity android:name=".Activities.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,7 +25,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Activities.RegistroActivity" />
+        <activity android:name=".Activities.FormulariosActivities.RegistroActivity" />
         <activity android:name=".Activities.InicioActivity" />
         <activity android:name=".Activities.MainActivity" />
     </application>

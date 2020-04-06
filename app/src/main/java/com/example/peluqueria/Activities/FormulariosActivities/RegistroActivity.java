@@ -1,4 +1,4 @@
-package com.example.peluqueria.Activities;
+package com.example.peluqueria.Activities.FormulariosActivities;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,6 +20,10 @@ import android.widget.Toast;
 import com.example.peluqueria.API.Api;
 import com.example.peluqueria.API.Deserializers.UsuarioDeserializer;
 import com.example.peluqueria.API.Services.Servicios;
+import com.example.peluqueria.Activities.InicioActivity;
+import com.example.peluqueria.Activities.MainActivity;
+import com.example.peluqueria.Activities.Success_splash;
+import com.example.peluqueria.Activities.activity_actividades;
 import com.example.peluqueria.Database.DbPeluqueria;
 import com.example.peluqueria.Model.Usuario;
 import com.example.peluqueria.R;
@@ -38,22 +42,13 @@ public class RegistroActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registro);
 
         btn_registrar = (Button) findViewById(R.id.btn_registrar);
-        btn_volver = (Button) findViewById(R.id.btn_volver);
+
 
         usuario = (EditText) findViewById(R.id.usuario);
         clave =(EditText) findViewById(R.id.clave);
         cnf_clave =(EditText) findViewById(R.id.cnf_clave);
 
 
-
-        btn_volver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(RegistroActivity.this, MainActivity.class );
-                startActivity(intent);
-                finish();
-            }
-        });
 
         btn_registrar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -67,7 +62,9 @@ public class RegistroActivity extends AppCompatActivity {
                 final String var_usu = usuario.getText().toString();
                 final String var_clave = clave.getText().toString();
                 final String var_confirmar = cnf_clave.getText().toString();
-
+                if (var_usu.isEmpty() || var_clave.isEmpty() || var_confirmar.isEmpty()){
+                    Toast.makeText(RegistroActivity.this,"Ningun campo debe estar vacio",Toast.LENGTH_LONG).show();
+                }else{
                 if (var_clave.equals(var_confirmar)){
                     Call<Usuario> datos = serv.getUsuario(var_usu);
                     datos.enqueue(new Callback<Usuario>() {
@@ -89,12 +86,12 @@ public class RegistroActivity extends AppCompatActivity {
                         @Override
                         public void onFailure(Call<Usuario> call, Throwable t) {
                           guardar(var_usu,var_clave);
-
                         }
                     });
                 }else{
                     Toast.makeText(RegistroActivity.this,"La confirmacion de contraseña no coincide",Toast.LENGTH_LONG).show();
                 }
+          }
 
 
 
@@ -118,7 +115,7 @@ public class RegistroActivity extends AppCompatActivity {
         switch (item.getItemId()){
             case R.id.it_cerrar_sesion:
                 SharedPreferences preferences;
-                preferences = getSharedPreferences("datos_usuario", Context.MODE_PRIVATE);
+                preferences = getSharedPreferences("datos_usuario",MODE_PRIVATE);
                 preferences.edit().clear().apply();
                 Intent intent3 = new Intent(RegistroActivity.this,MainActivity.class);
                 startActivity(intent3);
@@ -128,17 +125,26 @@ public class RegistroActivity extends AppCompatActivity {
             case R.id.it_asignar_actividades:
                 return true;
 
-            case R.id.it_actividades:
-                return true;
-
             case R.id.it_personal:
-                Intent intent4 = new Intent(RegistroActivity.this,ResgistroPersonalActivity.class);
+                Intent intent4 = new Intent(RegistroActivity.this,InicioActivity.class);
                 startActivity(intent4);
                 finish();
                 return true;
 
+            case R.id.it_guardar_actividades:
+                Intent intent7= new Intent(RegistroActivity.this, RegistroActividades.class);
+                startActivity(intent7);
+                finish();
+                return true;
+
+            case R.id.it_actividades:
+                Intent intent6 = new Intent(RegistroActivity.this, activity_actividades.class);
+                startActivity(intent6);
+                finish();
+                return true;
+
             case R.id.it_usuario:
-                Intent intent = new Intent(RegistroActivity.this,RegistroActivity.class);
+                Intent intent = new Intent(RegistroActivity.this, RegistroActivity.class);
                 startActivity(intent);
                 finish();
                 return true;

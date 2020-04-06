@@ -14,6 +14,9 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.peluqueria.Activities.FormulariosActivities.RegistroActividades;
+import com.example.peluqueria.Activities.FormulariosActivities.RegistroActivity;
+import com.example.peluqueria.Activities.FormulariosActivities.ResgistroPersonalActivity;
 import com.example.peluqueria.DAO.PeluqueriaDao;
 import com.example.peluqueria.Model.Personal;
 import com.example.peluqueria.R;
@@ -29,9 +32,7 @@ public class DetallePersonal extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detalle_personal);
         final Bundle objeto = getIntent().getExtras();
-
         personal = new Personal();
-
         if (objeto != null){
             personal = (Personal) objeto.getSerializable("personal");
         }
@@ -39,7 +40,6 @@ public class DetallePersonal extends AppCompatActivity {
         btn_volver_lista = (Button)findViewById(R.id.btn_volver_lista);
         btn_editar_personal = (Button)findViewById(R.id.btn_editar_personal);
         btn_eliminar_personal = (Button)findViewById(R.id.btn_eliminar_personal);
-
         nombre_editar = (EditText)findViewById(R.id.editar_nombre);
         cedula_editar = (EditText)findViewById(R.id.editar_cedula);
         telefono_editar = (EditText)findViewById(R.id.editar_telefono);
@@ -119,17 +119,26 @@ public class DetallePersonal extends AppCompatActivity {
             case R.id.it_asignar_actividades:
                 return true;
 
-            case R.id.it_actividades:
-                return true;
-
             case R.id.it_usuario:
-                Intent intent = new Intent(DetallePersonal.this,RegistroActivity.class);
+                Intent intent = new Intent(DetallePersonal.this, RegistroActivity.class);
                 startActivity(intent);
                 finish();
                 return true;
 
+            case R.id.it_guardar_actividades:
+                Intent intent7= new Intent(DetallePersonal.this, RegistroActividades.class);
+                startActivity(intent7);
+                finish();
+                return true;
+
+            case R.id.it_actividades:
+                Intent intent6 = new Intent(DetallePersonal.this,activity_actividades.class);
+                startActivity(intent6);
+                finish();
+                return true;
+
             case R.id.it_personal:
-                Intent intent4 = new Intent(DetallePersonal.this,ResgistroPersonalActivity.class);
+                Intent intent4 = new Intent(DetallePersonal.this, ResgistroPersonalActivity.class);
                 startActivity(intent4);
                 finish();
                 return true;

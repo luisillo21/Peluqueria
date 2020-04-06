@@ -41,6 +41,18 @@
     <string name="salir">Salir</string>
 
 
+    <string name="formulario_actividades">Formulario actividades</string>
+    <string name="Actividad">Actividad</string>
+    <string name="Precio">Precio</string>
+    <string name="hora_inicio">Hora de inicio</string>
+    <string name="hora_fin">Hora fin</string>
+    <string name="precio">Precio</string>
+    <string name="fecha">Fecha</string>
+    <string name="crear_actividad">Crear actividad</string>
+    <string name="actualizar">Actualizar</string>
+    <string name="listaDeactividades">Lista de actividades</string>
+
+
     <!-- String para formularios de registro personal -->
     <string name="Nombre">Nombre</string>
     <string name="Cedula">Cedula</string>
@@ -51,8 +63,9 @@
     <string name="editar">Editar</string>
     <string name="Id">Id</string>
     <string name="eliminar">Eliminar</string>
-
     <string name="mensaje_guardar">Registro guardado</string>
+
+    <!-- String para formulario de registro actividades -->
 
 
 </resources>

@@ -3,10 +3,10 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
     android:orientation="vertical"
-    tools:context=".Activities.FormulariosActivities.ResgistroPersonalActivity">
+    android:background="@android:color/white"
+    android:layout_height="match_parent"
+    tools:context=".Activities.DetalleActividad">
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -24,7 +24,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/login_form"
+            android:text="@string/formulario_actividades"
             android:textAlignment="center"
             android:textColor="@android:color/holo_blue_dark"
             android:ems="15"
@@ -36,14 +36,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"
-            android:text="@string/Nombre"
+            android:text="@string/Actividad"
 
             android:textColor="@android:color/holo_blue_dark" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/nombre"
+            android:id="@+id/editarActividad"
             android:textColor="@android:color/black"
             android:inputType="text"
 
@@ -54,15 +54,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"
-            android:text="@string/Cedula"
+            android:text="@string/fecha"
 
             android:textColor="@android:color/holo_blue_dark" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-                android:lines="@android:integer/config_longAnimTime"
-            android:id="@+id/cedula"
+            android:lines="@android:integer/config_longAnimTime"
+            android:id="@+id/editarFecha"
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp"
             android:inputType="text"
@@ -74,14 +74,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"
-            android:text="@string/Telefono"
-
+            android:text="@string/hora_inicio"
             android:textColor="@android:color/holo_blue_dark" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/telefono"
+            android:id="@+id/editarHoraInicio"
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp"
             android:inputType="text"
@@ -92,45 +91,64 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="20"
-            android:text="@string/Edad"
+            android:text="@string/hora_fin"
             android:textColor="@android:color/holo_blue_dark" />
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/edad"
-            android:digits="0123456789"
+            android:id="@+id/editarHoraFin"
             android:textColor="@android:color/black"
             android:layout_marginBottom="10dp"
-            android:inputType="number"
+            android:inputType="text"
+            />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:text="@string/precio"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/editarPrecio"
+            android:textColor="@android:color/black"
+            android:layout_marginBottom="10dp"
+            android:inputType="text"
             />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:orientation="horizontal">
 
 
             <Button
-                android:layout_width="120dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_registrar_personal"
+                android:id="@+id/btn_editar_actividad"
                 android:text="@string/Guardar"
                 android:textColor="@android:color/white"
                 android:background="@android:color/holo_blue_dark"
                 />
 
             <Button
-                android:layout_width="120dp"
-                android:layout_marginLeft="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/btn_volver_inicio"
-                android:text="@string/login_volver"
+                android:id="@+id/btn_eliminar_actividad"
+                android:text="@string/eliminar"
                 android:textColor="@android:color/white"
-                android:background="@android:color/holo_red_dark"/>
+                android:background="@android:color/holo_red_dark"
+                />
+
         </LinearLayout>
 
 
     </LinearLayout>
+
 
 </LinearLayout>

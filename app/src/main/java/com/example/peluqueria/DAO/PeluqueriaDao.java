@@ -2,22 +2,21 @@ package com.example.peluqueria.DAO;
 
 import android.content.ContentValues;
 import android.content.Context;
-import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.peluqueria.Activities.MainActivity;
-import com.example.peluqueria.Activities.RegistroActivity;
 import com.example.peluqueria.Database.DbPeluqueria;
+import com.example.peluqueria.Model.Actividad;
 import com.example.peluqueria.Model.Personal;
 
 import java.util.ArrayList;
 
 public class PeluqueriaDao extends AppCompatActivity {
     ArrayList<Personal> lista;
+    ArrayList<Actividad> listaActividad;
     public void guardar(String usuario, String clave, Context context){
         DbPeluqueria admin = new DbPeluqueria(context,"peluqueria",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
@@ -82,6 +81,64 @@ public class PeluqueriaDao extends AppCompatActivity {
         db.close();
         return lista;
     }
+
+    public ArrayList<Actividad> Listar_Actividad(Context context){
+        DbPeluqueria admin = new DbPeluqueria(context,"peluqueria",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        Cursor row = db.rawQuery("SELECT * from actividad where estado = 'A'",null);
+        listaActividad = new ArrayList<Actividad>();
+        while(row.moveToNext()){
+            Actividad obj = new Actividad(row.getInt(row.getColumnIndex("id_actividad"))
+                                          ,row.getString(row.getColumnIndex("descripcion"))
+                                          ,row.getString(row.getColumnIndex("fecha"))
+                                          ,row.getString(row.getColumnIndex("hora_inicio"))
+                                          ,row.getString(row.getColumnIndex("hora_fin"))
+                                          ,row.getFloat(row.getColumnIndex("precio"))
+                                           ,row.getString(row.getColumnIndex("estado")));
+            listaActividad.add(obj);
+        }
+        db.close();
+        return listaActividad;
+    }
+
+
+    public void guardar_Actividad(Actividad objeto, Context context){
+        DbPeluqueria admin = new DbPeluqueria(context,"peluqueria",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("descripcion",objeto.getDescripcion());
+        valores.put("fecha",objeto.getFecha());
+        valores.put("hora_inicio",objeto.getHora_inicio());
+        valores.put("hora_fin",objeto.getHora_fin());
+        valores.put("precio",objeto.getPrecio());
+        db.insert("actividad",null,valores);
+        db.close();
+    }
+
+    public void update_Actividad(Actividad objeto, Context context){
+        DbPeluqueria admin = new DbPeluqueria(context,"peluqueria",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("id_actividad",objeto.getId_actividad());
+        valores.put("descripcion",objeto.getDescripcion());
+        valores.put("fecha",objeto.getFecha());
+        valores.put("hora_inicio",objeto.getHora_inicio());
+        valores.put("hora_fin",objeto.getHora_fin());
+        valores.put("precio",objeto.getHora_fin());
+        db.update("actividad",valores,"id_actividad="+objeto.getId_actividad(),null);
+        db.close();
+    }
+
+    public void Eliminar_Actividad(int id, Context context){
+        DbPeluqueria admin = new DbPeluqueria(context,"peluqueria",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("estado","I");
+        db.update("actividad",valores,"id_actividad="+id,null);
+        db.close();
+    }
+
+
 
 
 }

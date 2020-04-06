@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_margin="10dp"
     android:layout_height="match_parent"
-    tools:context=".Activities.RegistroActivity"
+    tools:context=".Activities.FormulariosActivities.RegistroActivity"
     android:background="@android:color/white"
     android:orientation="vertical">
 
@@ -96,15 +96,6 @@
                 android:textColor="@android:color/white"
                 android:background="@android:color/holo_blue_dark"
                 />
-
-            <Button
-                android:layout_marginTop="20dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/btn_volver"
-                android:text="@string/login_volver"
-                android:textColor="@android:color/white"
-                android:background="@android:color/holo_red_dark"/>
 
 
         </LinearLayout>

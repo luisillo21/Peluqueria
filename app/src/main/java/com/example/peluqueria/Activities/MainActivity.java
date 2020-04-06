@@ -2,30 +2,25 @@ package com.example.peluqueria.Activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
-
 import com.example.peluqueria.API.Api;
 import com.example.peluqueria.API.Deserializers.UsuarioDeserializer;
 import com.example.peluqueria.API.Services.Servicios;
 import com.example.peluqueria.DAO.PeluqueriaDao;
 import com.example.peluqueria.Database.DbPeluqueria;
-import com.example.peluqueria.Model.Rol;
 import com.example.peluqueria.Model.Usuario;
 import com.example.peluqueria.R;
 import com.google.gson.GsonBuilder;
-
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
@@ -33,11 +28,14 @@ import retrofit2.Response;
 public class MainActivity extends AppCompatActivity {
     CheckBox cbRecordar;
     EditText etUsuario,etPass;
-    Button btn_iniciar,btn_salir,btn_form;
+    Button btn_iniciar,btn_salir;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         cbRecordar = (CheckBox) findViewById(R.id.cbRecordar);
 
 
@@ -46,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
         etPass = (EditText) findViewById(R.id.et_clave);
         btn_iniciar = (Button) findViewById(R.id.btn_iniciar);
         btn_salir = (Button) findViewById(R.id.btn_salir);
-        btn_form = (Button) findViewById(R.id.btn_form_registrar);
+
 
 
         btn_salir.setOnClickListener(new View.OnClickListener() {
@@ -126,17 +124,15 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        btn_form.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent_form = new Intent(MainActivity.this,RegistroActivity.class);
-                startActivity(intent_form);
-            }
-        });
+
 
 
 
 }
+
+
+
+
 
 
 
