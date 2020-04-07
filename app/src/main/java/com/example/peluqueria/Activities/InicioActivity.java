@@ -14,6 +14,7 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
 
+import com.example.peluqueria.Activities.FormulariosActivities.AsignarActividadActivity;
 import com.example.peluqueria.Activities.FormulariosActivities.RegistroActividades;
 import com.example.peluqueria.Activities.FormulariosActivities.RegistroActivity;
 import com.example.peluqueria.Activities.FormulariosActivities.ResgistroPersonalActivity;
@@ -90,6 +91,9 @@ public class InicioActivity extends AppCompatActivity {
                 return true;
 
             case R.id.it_asignar_actividades:
+                Intent intent9 = new Intent(InicioActivity.this, AsignarActividadActivity.class);
+                startActivity(intent9);
+                finish();
                 return true;
 
             case R.id.it_personal:

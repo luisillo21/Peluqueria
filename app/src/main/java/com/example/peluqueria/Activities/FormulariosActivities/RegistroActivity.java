@@ -123,6 +123,9 @@ public class RegistroActivity extends AppCompatActivity {
                 return true;
 
             case R.id.it_asignar_actividades:
+                Intent intent9 = new Intent(RegistroActivity.this,AsignarActividadActivity.class);
+                startActivity(intent9);
+                finish();
                 return true;
 
             case R.id.it_personal:

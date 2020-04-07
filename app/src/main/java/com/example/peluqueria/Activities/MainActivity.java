@@ -91,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
                          if (response.isSuccessful()){
                              String usuario = etUsuario.getText().toString();
                              String clave = etPass.getText().toString();
+
+
                              Usuario obj = response.body();
                              if (usuario.equals(obj.getUsuario()) && clave.equals(obj.getClave())){
                                  PeluqueriaDao object = new PeluqueriaDao();

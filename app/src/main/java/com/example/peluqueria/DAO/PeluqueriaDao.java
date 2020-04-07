@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.peluqueria.Database.DbPeluqueria;
 import com.example.peluqueria.Model.Actividad;
+import com.example.peluqueria.Model.Asignar_actividad;
 import com.example.peluqueria.Model.Personal;
 
 import java.util.ArrayList;
@@ -37,6 +38,16 @@ public class PeluqueriaDao extends AppCompatActivity {
         db.insert("personal",null,valores);
         db.close();
     }
+    public void guardar_Asignacion(Asignar_actividad obj, Context context){
+        DbPeluqueria admin = new DbPeluqueria(context,"peluqueria",null,1);
+        SQLiteDatabase db = admin.getWritableDatabase();
+        ContentValues valores = new ContentValues();
+        valores.put("id_personal",obj.getId_personal());
+        valores.put("id_actividad",obj.getId_actividad());
+        db.insert("asignar_actividad",null,valores);
+        db.close();
+    }
+
     public void update_Personal(Personal persona, Context context){
         DbPeluqueria admin = new DbPeluqueria(context,"peluqueria",null,1);
         SQLiteDatabase db = admin.getWritableDatabase();
@@ -64,12 +75,6 @@ public class PeluqueriaDao extends AppCompatActivity {
         lista = new ArrayList<Personal>();
 
         while(row.moveToNext()){
-            Log.e("ID_PERSONAL:","ID_PERSONA"+row.getInt(row.getColumnIndex("id_personal")));
-            Log.e("ID_PERSONAL:","nombre"+row.getString(row.getColumnIndex("nombre")));
-            Log.e("ID_PERSONAL:","cedula"+row.getString(row.getColumnIndex("cedula")));
-            Log.e("ID_PERSONAL:","telefono"+row.getString(row.getColumnIndex("telefono")));
-            Log.e("ID_PERSONAL:","edad"+row.getInt(row.getColumnIndex("edad")));
-
             Personal obj = new Personal(row.getInt(row.getColumnIndex("id_personal"))
                                        ,row.getString(row.getColumnIndex("nombre"))
                                        ,row.getInt(row.getColumnIndex("edad"))

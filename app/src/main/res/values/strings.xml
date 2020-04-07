@@ -51,6 +51,7 @@
     <string name="crear_actividad">Crear actividad</string>
     <string name="actualizar">Actualizar</string>
     <string name="listaDeactividades">Lista de actividades</string>
+    <string name="asignarActividad">Asignar actividad</string>
 
 
     <!-- String para formularios de registro personal -->
@@ -63,6 +64,9 @@
     <string name="editar">Editar</string>
     <string name="Id">Id</string>
     <string name="eliminar">Eliminar</string>
+    <string name="seleccionePersona">Seleccion una persona</string>
+    <string name="seleccionActividad">Seleccion una actividad</string>
+    <string name="formularioAsignar">Asignar actividad a una persona</string>
     <string name="mensaje_guardar">Registro guardado</string>
 
     <!-- String para formulario de registro actividades -->

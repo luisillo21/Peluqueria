@@ -12,7 +12,8 @@
         android:roundIcon="@mipmap/icono_peluqueria_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat">
-        <activity android:name=".Activities.DetalleActividad"></activity>
+        <activity android:name=".Activities.FormulariosActivities.AsignarActividadActivity"></activity>
+        <activity android:name=".Activities.DetalleActividad" />
         <activity android:name=".Activities.FormulariosActivities.RegistroActividades" />
         <activity android:name=".Activities.activity_actividades" />
         <activity android:name=".Activities.DetallePersonal" />

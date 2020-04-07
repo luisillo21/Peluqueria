@@ -14,6 +14,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.example.peluqueria.Activities.FormulariosActivities.AsignarActividadActivity;
 import com.example.peluqueria.Activities.FormulariosActivities.RegistroActividades;
 import com.example.peluqueria.Activities.FormulariosActivities.RegistroActivity;
 import com.example.peluqueria.Activities.FormulariosActivities.ResgistroPersonalActivity;
@@ -117,6 +118,9 @@ public class DetallePersonal extends AppCompatActivity {
                 return true;
 
             case R.id.it_asignar_actividades:
+                Intent intent9 = new Intent(DetallePersonal.this, AsignarActividadActivity.class);
+                startActivity(intent9);
+                finish();
                 return true;
 
             case R.id.it_usuario:

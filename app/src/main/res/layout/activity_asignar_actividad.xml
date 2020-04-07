@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".Activities.FormulariosActivities.AsignarActividadActivity">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/descarga"
+            android:contentDescription="@string/formularioAsignar"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/formularioAsignar"
+            android:textAlignment="center"
+            android:textColor="@android:color/holo_blue_dark"
+            android:ems="15"
+            android:paddingBottom="20dp"/>
+
+
+        <TextView
+            android:id="@+id/tw_usuario"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:text="@string/seleccionePersona"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/comboPersona" />
+
+
+        <TextView
+            android:id="@+id/etPersonaSelec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:background="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:text="@string/seleccionActividad"
+            android:textColor="@android:color/holo_blue_dark" />
+
+        <Spinner
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:id="@+id/comboActividad" />
+
+
+        <TextView
+            android:id="@+id/etaActividadSelec"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="20"
+            android:background="@android:color/holo_blue_dark"
+            android:textColor="@android:color/white" />
+
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/btnAsignarActividad"
+            android:text="@string/asignarActividad"
+            android:textColor="@android:color/white"
+            android:background="@android:color/holo_blue_dark"
+            />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/idPersonalselect"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:textColor="@android:color/white" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:id="@+id/idActividadselect"
+            android:layout_marginTop="20dp"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:textColor="@android:color/white" />
+
+
+    </LinearLayout>
+
+</LinearLayout>

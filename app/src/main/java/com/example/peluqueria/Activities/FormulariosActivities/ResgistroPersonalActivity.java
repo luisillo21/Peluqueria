@@ -108,6 +108,9 @@ public class ResgistroPersonalActivity extends AppCompatActivity {
                 return true;
 
             case R.id.it_asignar_actividades:
+                Intent intent9 = new Intent(ResgistroPersonalActivity.this,AsignarActividadActivity.class);
+                startActivity(intent9);
+                finish();
                 return true;
 
             case R.id.it_personal:

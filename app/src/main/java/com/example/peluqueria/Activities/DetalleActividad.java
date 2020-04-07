@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.peluqueria.Activities.FormulariosActivities.AsignarActividadActivity;
 import com.example.peluqueria.Activities.FormulariosActivities.RegistroActividades;
 import com.example.peluqueria.Activities.FormulariosActivities.RegistroActivity;
 import com.example.peluqueria.DAO.PeluqueriaDao;
@@ -89,7 +90,7 @@ public class DetalleActividad extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 dao = new PeluqueriaDao();
-                dao.Eliminar_Personal(EdObj.getId_actividad(),DetalleActividad.this);
+                dao.Eliminar_Actividad(EdObj.getId_actividad(),DetalleActividad.this);
                 Toast.makeText(DetalleActividad.this,"Datos eliminados",Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(DetalleActividad.this,activity_actividades.class);
                 startActivity(intent);
@@ -119,6 +120,9 @@ public class DetalleActividad extends AppCompatActivity {
                 return true;
 
             case R.id.it_asignar_actividades:
+                Intent intent9 = new Intent(DetalleActividad.this, AsignarActividadActivity.class);
+                startActivity(intent9);
+                finish();
                 return true;
 
             case R.id.it_personal:
